@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pocke_teer - Link & Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header class="profile-header">
+            <div class="profile-pic-wrapper">
+                <img src="images/frieren.png" alt="pocke_teer" class="profile-pic">
+            </div>
+            <h1>pocket_eer</h1>
+            <p class="commission-text">I may earn a small commission from amazon</p>
+
+            <div class="social-icons">
+                <a href="https://www.instagram.com/pocket_eer/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@Givingmyall-iwill" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.youtube.com/@Givingmyall-iwill" target="_blank"><i class="fab fa-pinterest"></i></a>
+                </div>
+
+            <div class="toggle-buttons">
+                <button id="links-btn" class="active">Links</button>
+                <button id="shop-btn">Shop</button>
+            </div>
+        </header>
+
+        <main class="content-area">
+
+            <section id="links-section" class="content-tab active-tab">
+                <a href="https://www.youtube.com/@Givingmyall-iwill" target="_blank" class="link-card youtube-card">
+                    <i class="fab fa-youtube"></i> YouTube
+                </a>
+                <a href="https://www.instagram.com/pocket_eer/" target="_blank" class="link-card instagram-card">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="YOUR_FACEBOOK_PROFILE_LINK" target="_blank" class="link-card facebook-card">
+                    <i class="fab fa-pinterest-p"></i> Pinterest
+                </a>
+                </section>
+
+            <section id="shop-section" class="content-tab hidden-tab">
+                <div class="search-bar-wrapper">
+                    <i class="fa fa-search"></i>
+                    <input type="text" id="product-search" placeholder="Search Pocke_teer's products">
+                </div>
+
+                <div class="product-grid">
+                    
+                    <div class="product-card" data-name="UnderArm Roll-on" data-link="YOUR_AMAZON_LINK_1">
+                        <div class="product-image">
+                            <img src="images/roll on.png" alt="UnderArm Roll-on">
+                        </div>
+                        <p class="product-title">Chemist at Play UnderArm Roll-On</p>
+                        <div class="share-dots" onclick="shareProduct(event, this)">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-name="Mobile Skin Cover" data-link="YOUR_AMAZON_LINK_2">
+                        <div class="product-image">
+                            <img src="mobile_skin.jpg" alt="Mobile Skin Cover">
+                        </div>
+                        <p class="product-title">Layers - Mobile Skin Cover - Tech burner</p>
+                        <div class="share-dots" onclick="shareProduct(event, this)">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card" data-name="Anti Dandruff Shampoo" data-link="YOUR_AMAZON_LINK_3">
+                        <div class="product-image">
+                            <img src="shampoo.jpg" alt="Anti Dandruff Shampoo">
+                        </div>
+                        <p class="product-title">Pilgrim Non Drying Anti Dandruff Shampoo</p>
+                        <div class="share-dots" onclick="shareProduct(event, this)">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-name="Anti Dandruff Shampoo" data-link="YOUR_AMAZON_LINK_3">
+                        <div class="product-image">
+                            <img src="shampoo.jpg" alt="Anti Dandruff Shampoo">
+                        </div>
+                        <p class="product-title">Pilgrim Non Drying Anti Dandruff Shampoo</p>
+                        <div class="share-dots" onclick="shareProduct(event, this)">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-name="Anti Dandruff Shampoo" data-link="YOUR_AMAZON_LINK_3">
+                        <div class="product-image">
+                            <img src="shampoo.jpg" alt="Anti Dandruff Shampoo">
+                        </div>
+                        <p class="product-title">Pilgrim Non Drying Anti Dandruff Shampoo</p>
+                        <div class="share-dots" onclick="shareProduct(event, this)">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-name="Anti Dandruff Shampoo" data-link="YOUR_AMAZON_LINK_3">
+                        <div class="product-image">
+                            <img src="shampoo.jpg" alt="Anti Dandruff Shampoo">
+                        </div>
+                        <p class="product-title">Pilgrim Non Drying Anti Dandruff Shampoo</p>
+                        <div class="share-dots" onclick="shareProduct(event, this)">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+
+
+                <div class="product-card" data-name="Anti Dandruff Shampoo" data-link="YOUR_AMAZON_LINK_3">
+                        <div class="product-image">
+                            <img src="shampoo.jpg" alt="Anti Dandruff Shampoo">
+                        </div>
+                        <p class="product-title">Pilgrim Non Drying Anti Dandruff Shampoo</p>
+                        <div class="share-dots" onclick="shareProduct(event, this)">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-name="Anti Dandruff Shampoo" data-link="YOUR_AMAZON_LINK_3">
+                        <div class="product-image">
+                            <img src="shampoo.jpg" alt="Anti Dandruff Shampoo">
+                        </div>
+                        <p class="product-title">Pilgrim Non Drying Anti Dandruff Shampoo</p>
+                        <div class="share-dots" onclick="shareProduct(event, this)">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+
+                    </div>
+            </section>
+        </main>
+
+        <div id="copy-message" class="copy-message-popup">Link Copied!</div>
+
+    </div>
+
+    <script src="link.js"></script>
+</body>
+</html>

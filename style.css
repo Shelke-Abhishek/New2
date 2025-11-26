@@ -1,7 +1,7 @@
 :root {
     --primary-color: #8B1A3B; /* Deep Maroon/Burgundy */
     --accent-color: #222;    /* Dark for Shop Button */
-    --background-color: #f7f7f7;
+
     --card-bg: white;
 }
 
@@ -13,14 +13,89 @@ body {
     display: flex;
     justify-content: center;
     min-height: 100vh;
+    overflow-x: hidden
 }
 
 .container {
     width: 100%;
     max-width: 600px; /* Max width like typical Linktree (Point 6) */
-    background-color: var(--primary-color);
+    background-color: #c92d5c;
     padding: 20px 10px;
+    overflow: hidden;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    border: #c92d5c 2px solid;
+    border-radius: 20px;
+    position: relative;
 }
+
+.global-share-btn {
+    position: absolute; /* Position relative to the .container */
+    top: 10px;
+    right: 10px;
+    /* Button appearance */
+    background-color: var(--card-bg); /* White background */
+    color: var(--primary-color); /* Maroon icon */
+    border: none;
+    border-radius: 50%; /* Circular button */
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    z-index: 10; /* Ensure it's above other elements */
+    /* Transition for hover/active effect */
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.global-share-btn:hover {
+    transform: scale(1.05);
+    background-color: #f0f0f0;
+}
+
+.global-share-btn:active {
+    transform: scale(0.95);
+    background-color: #ddd;
+}
+
+/* Adjust padding on header/container so the button doesn't look squished */
+@media (min-width: 601px) {
+    .container {
+        padding: 20px; /* Increase padding slightly on desktop */
+    }
+    .global-share-btn {
+        top: 20px;
+        right: 20px;
+    }
+}
+
+/* --- SCROLLBAR OPACITY FIX (For Chrome/WebKit) --- */
+/* Target the scrollbar for the body/viewport */
+
+body::-webkit-scrollbar {
+    width: 12px; /* Width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1); /* Very low opacity white/transparent track */
+}
+
+body::-webkit-scrollbar-thumb {
+    /* Use a semi-transparent color for the thumb to simulate lower opacity */
+    background-color: rgba(0, 0, 0, 0.25); 
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle, low-opacity border */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.4); /* Slightly darker on hover */
+}
+
+/* ================================================= */
+
+/* Profile Header */
+/* ... (rest of style.css untouched) ... */
 
 /* Profile Header */
 .profile-header {
@@ -31,6 +106,7 @@ body {
 
 .profile-pic-wrapper {
     margin-bottom: 10px;
+    margin-top: 80px
 }
 
 .profile-pic {
@@ -38,23 +114,30 @@ body {
     height: 90px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid white; 
+    border: 3px solid white;
+    transition: transform 0.2s; 
+}
+
+.profile-pic:hover{
+    transform: translateY(-2px) scale(1.06);
 }
 
 h1 {
-    font-size: 1.5em;
+    font-size: 2em;
     margin: 5px 0 2px 0;
+    color: black;
 }
 
 .commission-text {
     font-size: 0.9em;
     opacity: 0.8;
     margin-bottom: 15px;
+    color: black;
 }
 
 /* Social Icons */
 .social-icons a {
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 1.5em;
     margin: 0 8px;
     transition: opacity 0.3s;
@@ -78,7 +161,18 @@ h1 {
     color: white;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s;
+    transition:
+        background-color 0.3s,
+        color 0.3s,
+        border-color 0.3s,
+        box-shadow 0.2s,
+        transform 0.2s;
+}
+
+.toggle-buttons button.active {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);;
 }
 
 #links-btn {
@@ -91,17 +185,14 @@ h1 {
     border-bottom-right-radius: 50px;
 }
 
-.toggle-buttons button.active {
-    background-color: var(--accent-color);
-    color: white;
-    border-color: var(--accent-color);
-}
-
 /* Content Area */
 .content-area {
+    background-color: var(--background-color);
     border-radius: 10px;
-    padding: 5px;
+    padding: 10px 20px;
     margin-top: -10px; /* Overlap with background for aesthetic */
+    margin-bottom: 30px;
+    padding-bottom: 30px
 }
 
 .content-tab {
@@ -134,7 +225,47 @@ h1 {
 }
 
 .link-card:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.06);
+}
+
+.shop-square-box {
+    width: 100%;
+    height: 300px;
+    background: var(--background-color, #f7f7f7);
+    border-radius: 16px;
+    margin: 10px auto 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.12);
+    cursor: pointer;
+    transition: box-shadow 0.2s, transform 0.2s;
+    position: relative;
+}
+.shop-square-box:hover {
+    box-shadow: 0 6px 32px rgba(0,0,0,0.16);
+    transform: translateY(-2px) scale(1.06);
+}
+.shop-square-label {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.3em;
+    color: var(--accent-color, #222);
+    margin-bottom: 15px;
+}
+
+.shop-square-img {
+    width: 98%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 8px auto;
+    box-sizing: border-box;
+    border: transparent 2px solid;
+    border-radius: 15px;
 }
 
 /* --- Shop Section Styling --- */
@@ -160,10 +291,65 @@ h1 {
     color: #555;
 }
 
+/* ==================== CATEGORY TABS ==================== */
+.categories-bar-wrapper {
+    margin-bottom: 15px;
+    /* Prevent vertical overflow in case children get big */
+    overflow: visible;
+    background-color: white;
+    box-sizing: border-box;
+    border: white 2px solid;
+    border-radius: 25px;
+}
+
+.categories-bar {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 5px;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+}
+
+.categories-bar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.category-btn {
+    padding: 7px 18px;
+    border: 1px solid var(--primary-color);
+    background: #fff;
+    color: var(--primary-color);
+    border-radius: 25px;
+    cursor: pointer;
+    outline: none;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+    font-size: 1em;
+    transition: 
+        background 0.2s, 
+        color 0.2s, 
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.category-btn.active {
+    background: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Default 2 columns (Desktop/Tablet) */
     gap: 15px;
+}
+
+.category-btn:hover {
+    transform: translateY(-3px) scale(1.06);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.14);
+    z-index: 2;
 }
 
 .product-card {
@@ -173,12 +359,12 @@ h1 {
     position: relative;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     cursor: pointer; /* Point 4 */
-    height: 250px;
+    height: 400px;
 }
 
 .product-image img {
     width: 100%;
-    height: 200px; 
+    height: 350px; 
     object-fit: cover;
     display: block;
 }
@@ -219,16 +405,251 @@ h1 {
 /* Mobile Phones */
 @media (max-width: 767px) {
     .container {
-        padding: 5px;
+        padding: 10px;
     }
 
     .product-grid {
         grid-template-columns: repeat(2, 1fr); /* 2 coloumns on mobile */
-        gap: 13px;
+        gap: 15px; /* Single column on Mobile */
     }
 
+    .product-card {
+        height: 250px;
+    }
+
+    .product-image img {
+        height: 200px; 
+    }
+}
+
+
+/* Extra Added Stuff */
+/* --- Animated Toggle Switch --- */
+.toggle-buttons {
+    position: relative;
+    display: flex;
+    width: 90%;
+    max-width: 200px;
+    margin: 22px auto 0 auto;
+    background: #fff;
+    border-radius: 50px;
+    box-shadow: 0 2px 14px rgba(0,0,0,0.08);
+    height: 48px;
+    align-items: center;
+    padding: 3px;
+    overflow: hidden;
+}
+
+.toggle-buttons button {
+    /* Remove border, full width */
+    background: transparent;
+    border: none;
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 1.08em;
+    flex: 1;
+    border-radius: 50px;
+    z-index: 1;
+    transition:
+        color 0.27s cubic-bezier(.5,.9,.45,1.15),
+        transform 0.22s;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+    height: 42px;
+    outline: none;
+}
+
+.toggle-buttons .toggle-bg {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: calc(50% - 6px);
+    height: 42px;
+    border-radius: 50px;
+    z-index: 0;
+    transition: left 0.33s cubic-bezier(.7,1,.45,1.08), background 0.24s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.11);
+}
+
+.toggle-buttons.shop-active .toggle-bg {
+    left: calc(50% + 3px);
+    background: var(--accent-color);
+}
+
+/* Active tab text */
+.toggle-buttons button.active {
+    color: #fff;
+    font-weight: 700;
+    transition:
+        color 0.27s cubic-bezier(.5,.9,.45,1.15),
+        transform 0.22s;
+}
+
+/* Button pop (hover/focus) */
+.toggle-buttons button:hover, .toggle-buttons button:focus {
+    transform: scale(1.08);
+}
+
+.toggle-buttons button:active {
+    transform: scale(0.96);
+}
+
+/* --- Sliding Tabs like Linktree --- */
+.content-area {
+    position: relative;
+    min-height: 365px;
+    /* For tab sliding, needs relative */
+    overflow: visible;
+}
+
+.content-tab {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(0);
+    transition:
+        opacity 0.38s cubic-bezier(.5,.6,.45,1.15),
+        transform 0.38s cubic-bezier(.5,.8,.45,1.15);
+    z-index: 5;
+    will-change: opacity, transform;
+}
+
+.content-tab.active-tab {
+    opacity: 1;
+    pointer-events: auto;
+    position: relative;
+    z-index: 10;
+    transform: translateX(0);
+    display: block;
+}
+
+.content-tab.slide-in-right {
+    opacity: 1;
+    transform: translateX(100%);
+    pointer-events: none;
+}
+
+.content-tab.slide-in-left {
+    opacity: 1;
+    transform: translateX(-100%);
+    pointer-events: none;
+}
+
+/* Hide old tab after slide-out */
+.content-tab:not(.active-tab) {
+    opacity: 0;
+    pointer-events: none;
+}
+
+@media (max-width: 767px) {
+    .container { padding: 5px; }
+}
+
+
+/* Class added by JS when Links is active */
+.toggle-buttons.links-active .toggle-bg {
+    /* When Links is active, move the BG to the left */
+    transform: translateX(0);
+    /* NEW: Hide the white background entirely by making it transparent */
+    background-color: transparent; 
+}
+
+/* Class added by JS when Shop is active */
+.toggle-buttons.shop-active .toggle-bg {
+    /* When Shop is active, move the BG to the right */
+    transform: translateX(calc(100% + 5px));
+    /* NEW: Ensure the background is white again for the Shop button */
+    background-color: white; 
+}
+
+/* ================================================= */
+
+/* Active tab text */
+.toggle-buttons button.active {
+    color: white; /* Default active text color when white bg is used (Shop) */
+    font-weight: 700;
+    transition:
+        color 0.27s cubic-bezier(.5,.9,.45,1.15),
+        transform 0.22s;
+}
+
+/* Override active text color specifically for Links when the white bg is hidden */
+.toggle-buttons.links-active button#links-btn.active {
+    color: white; /* Text color remains white */
+    /* Ensure no sudden color transition when moving away from Shop */
+    transition: color 0.0s, transform 0.22s; 
+}
+
+/* Override active text color specifically for Shop when the white bg is visible */
+.toggle-buttons.shop-active button#shop-btn.active {
+    color: white; /* Text color must be the dark maroon when white bg is visible */
+}
+
+/* Button pop (hover/focus) */
+.toggle-buttons button:hover, .toggle-buttons button:focus {
+    transform: scale(1.08);
+}
+
+.toggle-buttons button:active {
+    transform: scale(0.96);
 }
 
 
 
+@media (max-width: 767px) {
+    .container {
+        padding: 5px;
+        max-width: 100vw;
+    }
+    .product-card {
+        height: auto;
+        min-height: 200px;
+    }
+    .link-card {
+        padding: 13px;
+        font-size: 1em;
+    }
+    .shop-square-box {
+        width: 100%;
+        height: 200px;
+    }
+    .shop-square-img {
+        width: 100%;
+        height: 165px;
+}
+    .shop-square-label {
+        font-size: 1.1em;
+        height: 10px
+    }
+    .toggle-buttons {
+        height: 40px;
+        margin-top: 14px;
+    }
+    .toggle-buttons button {
+        font-size: 1em;
+        padding: 0 5px;
+    }
+}
 
+@media (min-width: 768px) and (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+        gap: 14px;
+    }
+    .container {
+        padding: 12px;
+        max-width: 95vw;
+    }
+}
+
+@media (max-width: 400px) {
+    .profile-pic {
+        width: 60px;
+        height: 60px;
+    }
+}

@@ -224,10 +224,11 @@ h1 {
 
     .product-grid {
         grid-template-columns: repeat(2, 1fr); /* 2 coloumns on mobile */
-        gap: 10px; /* Single column on Mobile */
+        gap: 13px;
     }
 
 }
+
 
 
 

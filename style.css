@@ -99,7 +99,6 @@ h1 {
 
 /* Content Area */
 .content-area {
-    background-color: var(--background-color);
     border-radius: 10px;
     padding: 20px;
     margin-top: -10px; /* Overlap with background for aesthetic */
@@ -174,12 +173,12 @@ h1 {
     position: relative;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     cursor: pointer; /* Point 4 */
-    height: 400px;
+    height: 280px;
 }
 
 .product-image img {
     width: 100%;
-    height: 350px; 
+    height: 230px; 
     object-fit: cover;
     display: block;
 }
@@ -229,3 +228,4 @@ h1 {
     }
 
 }
+

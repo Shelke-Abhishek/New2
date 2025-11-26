@@ -187,7 +187,7 @@ h1 {
 
 /* Content Area */
 .content-area {
-    background-color: var(--background-color);
+    background-color: white;
     border-radius: 10px;
     padding: 10px 20px;
     margin-top: -10px; /* Overlap with background for aesthetic */

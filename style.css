@@ -224,6 +224,8 @@ h1 {
     }
 
     .product-grid {
-        grid-template-columns: 1fr; /* Single column on Mobile */
+        grid-template-columns: repeat(2, 1fr); /* 2 coloumns on mobile */
+        gap: 15px; /* Single column on Mobile */
     }
+
 }

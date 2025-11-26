@@ -100,7 +100,7 @@ h1 {
 /* Content Area */
 .content-area {
     border-radius: 10px;
-    padding: 20px;
+    padding: 5px;
     margin-top: -10px; /* Overlap with background for aesthetic */
 }
 
@@ -228,5 +228,6 @@ h1 {
     }
 
 }
+
 
 
